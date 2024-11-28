@@ -1,0 +1,19 @@
+{
+    "books": [
+        {
+            "title": "La boîte à merveilles",
+            "author": "Ahmed Sefrioui",
+            "publication_year": 1954
+        },
+        {
+            "title": "Antigone",
+            "author": "Jean Anouilh",
+            "publication_year": 1944
+        },
+        {
+            "title": "Le dernier jour d'un condamné",
+            "author": "Victor Hugo",
+            "publication_year": 1829
+        }
+    ]
+}

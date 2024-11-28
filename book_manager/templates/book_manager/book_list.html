@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+    <link rel="stylesheet" href="{% static 'book_manager/styles.css' %}">
+</head>
+<body>
+    <h1>Book List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publication Year</th>
+            </tr>
+        </thead>
+        <tbody id="book-table-body"></tbody>
+    </table>
+    <script>
+        fetch('/static/book_manager/books.json')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('book-table-body');
+                data.books.forEach(book => {
+                    const row = `
+                        <tr>
+                            <td>${book.title}</td>
+                            <td>${book.author}</td>
+                            <td>${book.publication_year}</td>
+                        </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>
+    <h2 id="book-count">Total books: 0</h2>
+
+</body>
+</html>
